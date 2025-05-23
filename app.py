@@ -3,6 +3,7 @@
 # import librarues 
 import streamlit as st
 import joblib
+import tensorflow as tf
 import re
 import string
 import pandas as pd
@@ -10,7 +11,7 @@ import numpy as np
 
 #load model and vectorizer
 logreg = joblib.load('LR_model.pkl')
-dl = joblib.load('deep_model.pkl')
+dl = tf.keras.models.load_model('best_model1.keras')
 vect = joblib.load('TfIdf_vect.pkl')
 
 # clean function
@@ -56,9 +57,9 @@ predict1 = st.button("Jiri LogReg Model Nyochaa")
 predict2 = st.button("Jiri Deep Model Nyochaa")
 
 if input_text != "":
+    st.session_state.prediction = None  # Reset prediction when user types
     # Transform the input text using the vectorizer
-    st.session_state.li = remove_stopwords(clean(input_text).split())  
-
+    st.session_state.li = remove_stopwords(clean(input_text).split())
 if predict1:
     # Make prediction
     st.session_state.prediction = logreg.predict(vect.transform(st.session_state.li).toarray())[0]
