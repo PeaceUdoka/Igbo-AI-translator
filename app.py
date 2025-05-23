@@ -1,5 +1,3 @@
-streamlit run app.py
-
 # import librarues 
 import streamlit as st
 import joblib
