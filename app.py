@@ -3,7 +3,6 @@
 # import librarues 
 import streamlit as st
 import joblib
-import tensorflow as tf
 import re
 import string
 import pandas as pd
@@ -11,7 +10,7 @@ import numpy as np
 
 #load model and vectorizer
 logreg = joblib.load('LR_model.pkl')
-dl = tf.keras.models.load_model('best_model1.keras')
+dl = joblib.load('deep_model.pkl')
 vect = joblib.load('TfIdf_vect.pkl')
 
 # clean function
