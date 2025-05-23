@@ -1,7 +1,7 @@
 streamlit
 transformers
 joblib
-tensorflow
+tensorflow==2.19.0
 pandas
 numpy
 re
