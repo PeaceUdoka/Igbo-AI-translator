@@ -3,7 +3,7 @@
 # import librarues 
 import streamlit as st
 import joblib
-import tensorflow as tf
+#import tensorflow as tf
 import re
 import string
 import pandas as pd
@@ -11,7 +11,7 @@ import numpy as np
 
 #load model and vectorizer
 logreg = joblib.load('LR_model.pkl')
-dl = tf.keras.models.load_model('best_model1.keras')
+#dl = tf.keras.models.load_model('best_model1.keras')
 vect = joblib.load('TfIdf_vect.pkl')
 
 # clean function
@@ -54,7 +54,7 @@ input_text = st.text_area("Kedu ka ụbọchị gị na-aga? Tinye uche obi gị
 
 # predict button
 predict1 = st.button("Jiri LogReg Model Nyochaa")
-predict2 = st.button("Jiri Deep Model Nyochaa")
+#predict2 = st.button("Jiri Deep Model Nyochaa")
 
 if input_text != "":
     st.session_state.prediction = None  # Reset prediction when user types
@@ -63,9 +63,9 @@ if input_text != "":
 if predict1:
     # Make prediction
     st.session_state.prediction = logreg.predict(vect.transform(st.session_state.li).toarray())[0]
-if predict2:
-    pred = dl.predict(vect.transform(st.session_state.li).toarray(),verbose= 0)[0]
-    st.session_state.prediction = np.argmax(pred)
+#if predict2:
+#    pred = dl.predict(vect.transform(st.session_state.li).toarray(),verbose= 0)[0]
+#    st.session_state.prediction = np.argmax(pred)
                                                     
 
 # Display results based on prediction
