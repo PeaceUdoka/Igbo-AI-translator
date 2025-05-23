@@ -1,3 +1,5 @@
+
+
 # import librarues 
 import streamlit as st
 import joblib
@@ -51,23 +53,19 @@ st.subheader("A sentiment analysis app for Igbo texts")
 input_text = st.text_area("Kedu ka ụbọchị gị na-aga? Tinye uche obi gị ebe a ka m nyochaa ya", "Type how you feel here...")
 
 # predict button
-predict = st.button("Nyochaa (Decode)")
+predict1 = st.button("Jiri LogReg Model Nyochaa")
+predict2 = st.button("Jiri Deep Model Nyochaa")
 
 if input_text != "":
-    st.session_state.prediction = None  # Reset prediction when user types
+    # Transform the input text using the vectorizer
+    st.session_state.li = remove_stopwords(clean(input_text).split())  
 
-if predict:
-    option = st.selectbox(
-    "Họrọ model ị chọrọ",
-    ("LogReg", "Deep Model", "IGBOtuned-afribert"),)
-    
-    if option == "LogReg":
-        # Transform the input text using the vectorizer and Make prediction
-        li = remove_stopwords(clean(text).split())
-        st.session_state.prediction = logreg.predict(vect.transform(li).toarray())[0]
-    if option == "Deep Model":
-        pred = dl.predict(vect.transform(li).toarray(),verbose= 0)[0]
-        st.session_state.prediction = np.argmax(pred)
+if predict1:
+    # Make prediction
+    st.session_state.prediction = logreg.predict(vect.transform(st.session_state.li).toarray())[0]
+if predict2:
+    pred = dl.predict(vect.transform(st.session_state.li).toarray(),verbose= 0)[0]
+    st.session_state.prediction = np.argmax(pred)
                                                     
 
 # Display results based on prediction
