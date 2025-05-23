@@ -1,7 +1,7 @@
 streamlit
 transformers
 joblib
-protobuf~=3.19.0
+protobuf==3.19.0
 tensorflow
 pandas
 numpy
