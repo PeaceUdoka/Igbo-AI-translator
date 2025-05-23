@@ -81,5 +81,5 @@ if st.session_state.prediction is not None:
         st.markdown(f"Neutral")
         st.markdown("![neutral](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjMybzRoOWc0aGZjODRodHNjZWlyNXo0a3V6YnB1c2U5MG15YmdmcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vTQggir5EQzuVoBiJt/giphy.gif)")
     else:
-        st.markdown(f"Neutral")
-        st.markdown("![neutral](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExczk4eDcwdHV3aGh1czRzNjFvNjlxYTY0ZXpra3lla3ByNDFpcG5zMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9ZQ/QWvra259h4LCvdJnxP/giphy.gif)
+        st.markdown(f"Positive")
+        st.markdown("![happy](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExczk4eDcwdHV3aGh1czRzNjFvNjlxYTY0ZXpra3lla3ByNDFpcG5zMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9ZQ/QWvra259h4LCvdJnxP/giphy.gif)")
